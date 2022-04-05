@@ -1,28 +1,28 @@
 import React, { useContext } from 'react';
 import Context from '../../Provider/context';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './style.css';
 
 function Login() {
   const { setEmail, setPassword, disabledBtn } = useContext(Context);
 
-  const history = useHistory();
+  const navigate = useNavigate();
   
   return (
-    <section className="container">
+    <section className="container-login">
       <h1 className="title-login">Wallet</h1>
       <form className="form-login">
         <input
           name="email"
           type="email"
-          className="input-login"
+          className="input-email"
           placeholder="email"
           onChange={ ({target: { value }}) => setEmail(value) }
         />
         <input
           name="password"
           type="password"
-          className="input-senha"
+          className="input-password"
           placeholder="password"
           onChange={ ({target: { value }}) => setPassword(value) }
         />
@@ -30,7 +30,7 @@ function Login() {
           type="button"
           className="button-login"
           disabled={ disabledBtn }
-          onClick={ () =>  history.push('/wallet') }
+          onClick={ () =>  navigate('/wallet') }
         >
           Login
         </button>
@@ -38,7 +38,5 @@ function Login() {
     </section>
   );
 }
-
-
 
 export default Login;

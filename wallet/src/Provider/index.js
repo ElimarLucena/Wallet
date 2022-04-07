@@ -6,6 +6,10 @@ function Provider({ children }) {
   const [password, setPassword] = useState('');
   const [disabledBtn, setdisableBtn] = useState(true);
 
+  // state wallet
+  const [expenses, setExpenses] = useState([]);
+
+  // Login
   const checkUserInformation = () => {
     const passwordLength = 6;
     const verificationPassword = password.length >= passwordLength;
@@ -22,10 +26,15 @@ function Provider({ children }) {
     checkUserInformation();
   }, [email, password])
 
+  // Wallet
+
+
   const contextValue = {
     email,
     password,
     disabledBtn,
+    expenses,
+    setExpenses,
     setEmail,
     setPassword,
   }

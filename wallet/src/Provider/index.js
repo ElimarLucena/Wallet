@@ -29,9 +29,9 @@ function Provider({ children }) {
 
   // Wallet
   useEffect(() => {
-      setExpenses([
-        ...expenses, expenses.filter(({ id }) => id !== deleteList)
-      ])
+      setExpenses(
+        expenses.filter(({ id }) => id !== deleteList)
+      )
   }, [deleteList])
 
   const contextValue = {

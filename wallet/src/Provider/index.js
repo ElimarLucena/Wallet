@@ -9,6 +9,7 @@ function Provider({ children }) {
   // state wallet
   const [expenses, setExpenses] = useState([]);
   const [deleteList, setDeleteList] = useState(null);
+  const [editList, setEditList] = useState({});
 
   // Login
   const checkUserInformation = () => {

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Context from '../../Provider/context';
 
 function Table() {
-  const { expenses, setDeleteList } = useContext(Context);
+  const { expenses, setDeleteList, setEditList } = useContext(Context);
   return (
     <table>
     <thead>
@@ -38,6 +38,7 @@ function Table() {
             <td>
               <button
                 type="button"
+                onClick={ () => setEditList(item)}
               >
                 Edit
               </button>

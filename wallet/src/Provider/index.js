@@ -44,6 +44,7 @@ function Provider({ children }) {
     setEmail,
     setPassword,
     setDeleteList,
+    setEditList,
   }
   return (
     <Context.Provider value={ contextValue } >

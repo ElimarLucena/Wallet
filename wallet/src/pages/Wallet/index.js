@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import getQuotesApi from '../../services';
 import Context from '../../Provider/context';
+import Header from '../../Components/Header';
+import Table from '../../Components/Table';
 
 function Wallet() {
   const [currencyName, setCurrencyName] = useState([]);
@@ -42,7 +44,7 @@ function Wallet() {
 
   return (
     <div>
-        {/* <Header /> */}
+        <Header />
         <form>
           <label htmlFor="value">
             Value:
@@ -115,7 +117,7 @@ function Wallet() {
             Add Expenses
           </button>
         </form>
-        {/* <Table /> */}
+        <Table />
       </div>
   )
 }

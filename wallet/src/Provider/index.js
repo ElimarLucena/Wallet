@@ -8,6 +8,7 @@ function Provider({ children }) {
 
   // state wallet
   const [expenses, setExpenses] = useState([]);
+  const [deleteList, setDeleteList] = useState(null);
 
   // Login
   const checkUserInformation = () => {
@@ -27,7 +28,11 @@ function Provider({ children }) {
   }, [email, password])
 
   // Wallet
-
+  useEffect(() => {
+      setExpenses([
+        ...expenses, expenses.filter(({ id }) => id !== deleteList)
+      ])
+  }, [deleteList])
 
   const contextValue = {
     email,
@@ -37,6 +42,7 @@ function Provider({ children }) {
     setExpenses,
     setEmail,
     setPassword,
+    setDeleteList,
   }
   return (
     <Context.Provider value={ contextValue } >

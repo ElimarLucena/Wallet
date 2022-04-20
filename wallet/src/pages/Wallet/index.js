@@ -15,7 +15,7 @@ function Wallet() {
   const [category, setCategory] = useState('Food');
   const [exchangeRates, setExchangeRates] = useState({})
 
-  const {expenses, setExpenses,} = useContext(Context);
+  const {expenses, setExpenses, editList} = useContext(Context);
 
   const states = {
     id,
@@ -41,6 +41,18 @@ function Wallet() {
     setValue(0);
     setDescription('');
   }, [expenses])
+
+  useEffect(() => {
+    if (Object.keys(editList).length > 0) {
+      setId(editList.id);
+      setValue(editList.value);
+      setCurrency(editList.currency);
+      setDescription(editList.description);
+      setMethod(editList.method);
+      setCategory(editList.category);
+      setExchangeRates(editList.exchangeRates);
+    }
+  }, [editList])
 
   return (
     <div>

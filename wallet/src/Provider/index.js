@@ -40,6 +40,7 @@ function Provider({ children }) {
     password,
     disabledBtn,
     expenses,
+    editList,
     setExpenses,
     setEmail,
     setPassword,

@@ -119,15 +119,23 @@ function Wallet() {
               <option>Health</option>
             </select>
           </label>
-          <button
-            type="button"
-            onClick={ () => {
-              setExpenses([...expenses, states]);
-              setId(id + 1);
-            } }
-          >
-            Add Expenses
-          </button>
+          {
+            Object.keys(editList).length > 0 ? (
+              <button>
+                Edit Expenses
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={ () => {
+                  setExpenses([...expenses, states]);
+                  setId(id + 1);
+                } }
+              >
+                Add Expenses
+              </button>
+            )
+          }
         </form>
         <Table />
       </div>

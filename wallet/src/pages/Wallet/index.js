@@ -15,7 +15,7 @@ function Wallet() {
   const [category, setCategory] = useState('Food');
   const [exchangeRates, setExchangeRates] = useState({})
 
-  const {expenses, setExpenses, editList} = useContext(Context);
+  const {expenses, setExpenses, editList, setEditedList } = useContext(Context);
 
   const states = {
     id,
@@ -121,7 +121,10 @@ function Wallet() {
         </label>
         {
           Object.keys(editList).length > 0 ? (
-            <button>
+            <button
+              type="button"
+              onClick={ () => setEditedList(states) }
+            >
               Edit Expenses
             </button>
           ) : (

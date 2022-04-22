@@ -10,6 +10,7 @@ function Provider({ children }) {
   const [expenses, setExpenses] = useState([]);
   const [deleteList, setDeleteList] = useState(null);
   const [editList, setEditList] = useState({});
+  const [editedList, setEditedList] = useState({});
 
   // Login
   const checkUserInformation = () => {
@@ -35,6 +36,17 @@ function Provider({ children }) {
       )
   }, [deleteList])
 
+  useEffect(() => {
+    if (Object.keys(editedList).length > 0) {
+      const newExpenses = [...expenses];
+      newExpenses.splice(editList.id, 1, editedList);
+      setExpenses(
+        newExpenses,
+      )
+      setEditList({});
+    }
+  }, [editedList])
+
   const contextValue = {
     email,
     password,
@@ -46,6 +58,7 @@ function Provider({ children }) {
     setPassword,
     setDeleteList,
     setEditList,
+    setEditedList,
   }
   return (
     <Context.Provider value={ contextValue } >
